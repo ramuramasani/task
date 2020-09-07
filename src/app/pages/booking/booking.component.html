@@ -1,0 +1,48 @@
+<!--
+<div class="container" *ngIf="lists.length > 0">
+  <div class="row justify-content-around" *ngFor="let list of lists">
+    <div class="col">
+      {{ list.name }},
+      {{ list.email }},
+      {{ list.phone }},
+      {{ list.seats }},
+      {{ list.attendee }},
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+    <div class="col">
+      One of three columns
+    </div>
+  </div>
+</div>
+<p class="place" *ngIf="lists.length <= 0" >No list's added yet</p> -->
+
+
+<div class="container-md space">
+  <div class="row">
+    <div class="col-md" *ngFor="let item of moviesInfo">
+      <mat-card class="card">
+        <form style="text-align: center;">
+            <img [src]="item.image" class="card-img-top" alt="..." >
+            <div class="card-body">
+              <!-- <input matInput type="date" required> -->
+              <mat-form-field color="accent" appearance="fill">
+                <mat-label>Select Booking Date</mat-label>
+                <input matInput [matDatepicker]="picker1">
+                <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                <mat-datepicker #picker1></mat-datepicker>
+              </mat-form-field>
+              <label for=""><b> Seats Available : {{ item.availableSeats }}</b> </label>
+              <div>
+                <a mat-raised-button type="submit" color="primary" (click)="bookTickets(item)">Book Now</a>
+              </div>
+            </div>
+        </form>
+      </mat-card>
+    </div>
+  </div>
+</div>
